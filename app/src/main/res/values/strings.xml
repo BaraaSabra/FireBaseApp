@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">FireBaseApp</string>
+    <string-array name="Country">
+        <item>Palestine</item>
+        <item>Egypt</item>
+        <item>Jordan</item>
+        <item>Tunisia</item>
+        <item>Sudan</item>
+        <item>Saudi Arabia</item>
+
+    </string-array>
+</resources>
