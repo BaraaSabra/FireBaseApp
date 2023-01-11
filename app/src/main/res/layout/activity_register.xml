@@ -98,7 +98,7 @@
     </RadioGroup>
 
     <Button
-        android:id="@+id/btn_Save"
+        android:id="@+id/btn_save"
         android:layout_width="163dp"
         android:layout_height="59dp"
         android:layout_gravity="center"

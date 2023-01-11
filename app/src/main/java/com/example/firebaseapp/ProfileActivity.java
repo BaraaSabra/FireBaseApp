@@ -14,12 +14,11 @@ import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.OAuthCredential;
 import com.google.firebase.auth.UserProfileChangeRequest;
 
-public class ProfileActivity extends AppCompatActivity {
+public class ProfileActivity extends BaseActivity {
     ActivityProfileBinding binding;
-    FirebaseAuth mAuta;
-    FirebaseUser currentuser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,14 +28,34 @@ public class ProfileActivity extends AppCompatActivity {
         mAuta=FirebaseAuth.getInstance();
       currentuser=mAuta.getCurrentUser();
 
-        UpdateProfile();
-        UpdateEmail();
-        UpdatePassword();
+//        UpdateProfile();
+//        UpdateEmail();
+//        UpdatePassword();
 
-        binding.btnSave.setOnClickListener(new View.OnClickListener() {
+        binding.btnUpdateEmali.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                UpdatePassword();
+//                UpdateProfile();
+                UpdateEmail();
+
+            }
+        });
+
+        binding.btnUpdatePassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 UpdatePassword();
+
+
+            }
+        });
+        binding.btnUpdateUserName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                UpdateProfile();
+
+
             }
         });
     }
@@ -56,7 +75,7 @@ public class ProfileActivity extends AppCompatActivity {
                                             if (task.isSuccessful()) {
                                                 //يعنلى حدث البيانات
                                                 currentuser.reload();
-                                                Toast.makeText(ProfileActivity.this, "profile update" + currentuser.getDisplayName(), Toast.LENGTH_SHORT).show();
+                                                Toast.makeText(ProfileActivity.this, "Emali update " + currentuser.getEmail(), Toast.LENGTH_SHORT).show();
                                             } else {
                                                 task.getException().printStackTrace();
                                                 Toast.makeText(ProfileActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
@@ -83,7 +102,7 @@ public class ProfileActivity extends AppCompatActivity {
                         if (task.isSuccessful()){
                             //يعنلى حدث البيانات
                             currentuser.reload();
-                            Toast.makeText(ProfileActivity.this, "profile update"+currentuser.getDisplayName(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(ProfileActivity.this, "profile update "+currentuser.getDisplayName(), Toast.LENGTH_SHORT).show();
                         }else {
                             task.getException().printStackTrace();
                             Toast.makeText(ProfileActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
@@ -95,6 +114,7 @@ public class ProfileActivity extends AppCompatActivity {
 
 
     private void UpdatePassword() {
+
         AuthCredential authCredential = EmailAuthProvider.getCredential(currentuser.getEmail(), binding.etOldPassword.getText().toString());
         currentuser.reauthenticate(authCredential)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -109,7 +129,7 @@ public class ProfileActivity extends AppCompatActivity {
                                             if (task.isSuccessful()) {
                                                 //يعنلى حدث البيانات
                                                 currentuser.reload();
-                                                Toast.makeText(ProfileActivity.this, "profile update" + currentuser.getDisplayName(), Toast.LENGTH_SHORT).show();
+                                                Toast.makeText(ProfileActivity.this, "passwoord update " + currentuser.getEmail(), Toast.LENGTH_SHORT).show();
                                             } else {
                                                 task.getException().printStackTrace();
                                                 Toast.makeText(ProfileActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();

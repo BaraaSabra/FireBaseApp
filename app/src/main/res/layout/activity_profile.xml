@@ -15,6 +15,7 @@
         android:layout_marginStart="15dp"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="15dp"
+        android:layout_marginBottom="-10dp"
         android:background="@drawable/edittext"
         android:ems="10"
         android:hint="   Password"
@@ -32,6 +33,7 @@
         android:layout_marginStart="15dp"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="15dp"
+        android:layout_marginBottom="-10dp"
         android:background="@drawable/edittext"
         android:ems="10"
         android:hint="   Email address"
@@ -41,11 +43,26 @@
         android:textColorHint="#1E1D1D"
         android:textSize="24sp" />
 
+    <Button
+        android:id="@+id/btn_updateEmali"
+        android:layout_width="250dp"
+        android:layout_height="68dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        android:backgroundTint="#D360E6"
+        android:hint="Save"
+        android:paddingStart="10dp"
+        android:text="Update your Emali"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
     <EditText
         android:id="@+id/et_username"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_margin="15dp"
+        android:layout_marginBottom="-10dp"
         android:background="@drawable/edittext"
         android:ems="10"
         android:hint="   Username"
@@ -55,11 +72,27 @@
         android:textSize="24sp" />
 
 
+    <Button
+        android:id="@+id/btn_updateUserName"
+        android:layout_width="250dp"
+        android:layout_height="68dp"
+        android:layout_gravity="center"
+        android:layout_margin="15dp"
+        android:backgroundTint="#D360E6"
+        android:hint="Save"
+        android:paddingStart="10dp"
+        android:text="Update your Name"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
+
     <EditText
         android:id="@+id/et_oldPassword"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_margin="15dp"
+        android:layout_marginBottom="-10dp"
         android:background="@drawable/edittext"
         android:ems="10"
         android:hint="   Old Password"
@@ -73,6 +106,7 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_margin="15dp"
+        android:layout_marginBottom="-10dp"
         android:background="@drawable/edittext"
         android:ems="10"
         android:hint="   New Password"
@@ -82,18 +116,18 @@
         android:textSize="24sp" />
 
 
-
     <Button
-        android:id="@+id/btn_Save"
-        android:layout_width="163dp"
-        android:layout_height="59dp"
+        android:id="@+id/btn_UpdatePassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="15dp"
         android:backgroundTint="#D360E6"
         android:hint="Save"
         android:paddingStart="10dp"
+        android:text="Update ypur password"
+        android:textAllCaps="false"
         android:textColor="@color/black"
-        android:text="Update"
         android:textSize="24sp" />
 
 </LinearLayout>

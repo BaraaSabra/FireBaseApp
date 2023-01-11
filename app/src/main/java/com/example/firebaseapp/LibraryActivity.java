@@ -10,7 +10,7 @@ import com.example.firebaseapp.databinding.ActivityLibraryBinding;
 
 import java.util.ArrayList;
 
-public class LibraryActivity extends AppCompatActivity {
+public class LibraryActivity extends BaseActivity {
     ActivityLibraryBinding binding;
 
     @Override

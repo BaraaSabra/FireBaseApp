@@ -8,7 +8,7 @@ import android.view.View;
 
 import com.example.firebaseapp.databinding.ActivityCreateCategoryBinding;
 
-public class CreateCategory extends AppCompatActivity {
+public class CreateCategory extends BaseActivity {
     ActivityCreateCategoryBinding binding;
 
     @Override

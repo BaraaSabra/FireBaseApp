@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class EditBook extends AppCompatActivity {
+public class EditBook extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
