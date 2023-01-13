@@ -8,24 +8,24 @@
     android:orientation="vertical">
 
 
+    <TextView
+        android:id="@+id/catogre"
+        android:layout_width="325dp"
+        android:layout_height="53dp"
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="210dp"
-        android:layout_height="220dp"
-        android:layout_marginStart="106dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="105dp"
-        android:scaleType="fitXY"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_launcher_background"
-        android:layout_marginBottom="30dp"/>
+        android:layout_marginHorizontal="45dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/edittext"
+        android:drawableStart="@drawable/ic_baseline_category_24"
+        android:hint="  Catogry"
+        android:padding="10dp"
+        android:textColor="#000"
+        android:textSize="15dp" />
 
 
-    <EditText
-        android:id="@+id/etName"
+    <TextView
+        android:id="@+id/tvtName"
         android:layout_width="325dp"
         android:layout_height="53dp"
         android:layout_marginHorizontal="45dp"
@@ -34,10 +34,11 @@
         android:drawableStart="@drawable/ic_baseline_menu_book_24"
         android:hint="   Book Name"
         android:padding="10dp"
-        android:textSize="15dp" />
+        android:textSize="15dp"
+        />
 
-    <EditText
-        android:id="@+id/edAuthor"
+    <TextView
+        android:id="@+id/tvAuthor"
         android:layout_width="325dp"
         android:layout_height="53dp"
         android:layout_marginHorizontal="45dp"
@@ -49,8 +50,8 @@
         android:padding="10dp"
         android:textSize="15dp" />
 
-    <EditText
-        android:id="@+id/edYear"
+    <TextView
+        android:id="@+id/tvYear"
         android:layout_width="325dp"
         android:layout_height="53dp"
         android:layout_marginHorizontal="45dp"
@@ -63,8 +64,8 @@
         android:padding="10dp"
         android:textSize="15dp" />
 
-    <EditText
-        android:id="@+id/edPage"
+    <TextView
+        android:id="@+id/tvPage"
         android:layout_width="325dp"
         android:layout_height="48dp"
         android:layout_marginHorizontal="45dp"

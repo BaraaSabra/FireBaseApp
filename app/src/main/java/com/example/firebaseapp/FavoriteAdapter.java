@@ -18,6 +18,7 @@ import java.util.ArrayList;
 public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.FavoriteViewHolder> {
     ArrayList<FavoriteClass>favoriteArrayList;
     Context context;
+    boolean isEmpty;
 
     public FavoriteAdapter(ArrayList<FavoriteClass> favoriteArrayList, Context context) {
         this.favoriteArrayList = favoriteArrayList;
@@ -39,6 +40,7 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.Favori
 //        holder.imageView.setImageDrawable(favorite.getImage());setImageBitmap(favorite.getImage());
 
 
+
     }
 
     @Override
@@ -48,13 +50,12 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.Favori
 
     class FavoriteViewHolder extends RecyclerView.ViewHolder{
         TextView BookName,bookYear;
-        ImageView imageView;
 
         public FavoriteViewHolder(FavertitemBinding binding) {
             super(binding.getRoot());
             BookName=binding.nameBook;
             bookYear=binding.bookYear;
-            imageView=binding.ibFavourite;
+
         }
     }
 }

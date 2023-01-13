@@ -46,16 +46,12 @@ public class ProfileActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
                 UpdatePassword();
-
-
             }
         });
         binding.btnUpdateUserName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 UpdateProfile();
-
-
             }
         });
     }
