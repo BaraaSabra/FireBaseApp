@@ -12,7 +12,15 @@ public class CreateBookClass {
     String releaseYear;
     String Category;
     int pagesNumer;
+   String uid;
 
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
+    }
 
     public CreateBookClass(String bookName) {
         this.bookName = bookName;
@@ -69,15 +77,15 @@ public class CreateBookClass {
         this.pagesNumer = pagesNumer;
     }
 
-    @Exclude
-    public Map<String, Object> toMap() {
-        HashMap<String, Object> result = new HashMap<>();
-        result.put("bookName", bookName);
-        result.put("autherName", autherName);
-        result.put("releaseYear", releaseYear);
-        result.put("Category", Category);
-        result.put("pagesNumer", pagesNumer);
-
-        return result;
-    }
+//    @Exclude
+//    public Map<String, Object> toMap() {
+//        HashMap<String, Object> result = new HashMap<>();
+//        result.put("bookName", bookName);
+//        result.put("autherName", autherName);
+//        result.put("releaseYear", releaseYear);
+//        result.put("Category", Category);
+//        result.put("pagesNumer", pagesNumer);
+//
+//        return result;
+//    }
 }

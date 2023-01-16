@@ -1,6 +1,7 @@
 package com.example.firebaseapp;
 
 public interface Favorite {
-    void Favarite(String expressions);
-    void unfavarite(String expressions);
+    String Favarite(String expressions);
+    String unfavarite(String expressions);
+
 }

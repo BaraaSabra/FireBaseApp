@@ -26,5 +26,6 @@ public class BaseActivity extends AppCompatActivity {
         databaseReference = FirebaseDatabase.getInstance().getReference();
 
 
+
     }
 }

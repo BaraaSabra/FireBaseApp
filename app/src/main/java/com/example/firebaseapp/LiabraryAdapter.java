@@ -1,6 +1,7 @@
 package com.example.firebaseapp;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,12 +22,14 @@ public class LiabraryAdapter extends RecyclerView.Adapter<LiabraryAdapter.Librar
     Details details;
     boolean isEmpty;
     Favorite favorite;
-    boolean isfavarite;
+    boolean isfavarite=false;
 
-    public LiabraryAdapter(ArrayList<CreateBookClass> arrayList, Context context, Details details) {
+    public LiabraryAdapter(ArrayList<CreateBookClass> arrayList, Context context, Details details,Favorite favorite) {
         this.arrayList = arrayList;
         this.context = context;
         this.details=details;
+        this.favorite=favorite;
+
 
     }
 
@@ -42,22 +45,37 @@ public class LiabraryAdapter extends RecyclerView.Adapter<LiabraryAdapter.Librar
         int pos=position;
        CreateBookClass library=  arrayList.get(position);
        holder.textView.setText(library.getBookName());
+
        holder.itemView.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
                details.OnClike(pos);
+
            }
        });
 
-        if(isfavarite){
-            holder.Favet.setImageResource(R.drawable.ic_baseline_favorite_border_24);
-            favorite.unfavarite(holder.textView.getText().toString());
+       holder.unfav.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               if(!isfavarite){
 
-        }else{
-            holder.Favet.setImageResource(R.drawable.ic_baseline_favorite_2222);
-            favorite.Favarite(holder.textView.getText().toString());
-        }
-        isfavarite=!isfavarite;
+                   holder.unfav.setImageResource(R.drawable.ic_baseline_favorite_border_24);
+                   favorite.Favarite(String.valueOf(Log.d("bokers",holder.textView.getText().toString())));
+
+//                       Log.d("exebion",favorite.Favarite(holder.textView.getText().toString()));
+
+
+               }else{
+                   holder.unfav.setImageResource(R.drawable.ic_baseline_favorite_2222);
+                   favorite.unfavarite(holder.textView.getText().toString());
+
+               }
+               isfavarite=!isfavarite;
+
+           }
+       });
+
+
 
     }
 

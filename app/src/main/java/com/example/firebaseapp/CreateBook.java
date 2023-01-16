@@ -80,9 +80,9 @@ public class CreateBook extends BaseActivity {
         binding.btnCreate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                if (mainImageURL.getPath() != null) {
-//                    UpLodImage();
-//                }
+                if (mainImageURL.getPath() != null) {
+                    UpLodImage();
+                }
                 String bookName = binding.etName.getText().toString();
                 String AutheName = binding.edAuthor.getText().toString();
                 String year = binding.edYear.getText().toString();
@@ -116,16 +116,18 @@ public class CreateBook extends BaseActivity {
         createBook.setCategory(Category);
         // we are use add value event listener method
         // which is called with database reference.
+
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                databaseReference.child(createBook.getBookName()).setValue(createBook);
+                databaseReference.child((createBook.getBookName())).setValue(createBook);
                 Toast.makeText(CreateBook.this, "data added", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 Toast.makeText(CreateBook.this, "Fail to add data " + error, Toast.LENGTH_SHORT).show();
+                Log.d("errorfile",error.getMessage());
 
             }
         });
@@ -154,8 +156,6 @@ public class CreateBook extends BaseActivity {
                         Toast.makeText(CreateBook.this,
                                 "Image Uploded failure" + e.getMessage(), Toast.LENGTH_SHORT).show();
                         Log.d("Image Uploded failure", e.getMessage());
-
-
                     }
                 })
                 .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {

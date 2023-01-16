@@ -1,13 +1,21 @@
 package com.example.firebaseapp;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.firebaseapp.databinding.ActivityHomeBinding;
@@ -19,6 +27,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
@@ -28,7 +39,7 @@ public class HomeActivity extends BaseActivity {
     private Uri mainImageURL;
     public FirebaseUser firebaseUser;
     private FirebaseAuth authprofile;
-
+    public static final String POST_NOTIFICATIONS = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +47,20 @@ public class HomeActivity extends BaseActivity {
         setContentView(binding.getRoot());
         authprofile = FirebaseAuth.getInstance();
         firebaseUser = authprofile.getCurrentUser();
+
+
+        FirebaseMessaging.getInstance().subscribeToTopic("NotificationApp")
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        String msg = "Done";
+                        if (!task.isSuccessful()) {
+                            msg = "Failed";
+                        }
+
+                    }
+                });
+
 
 
         binding.cardaddnewbook.setOnClickListener(new View.OnClickListener() {
@@ -52,13 +77,13 @@ public class HomeActivity extends BaseActivity {
                 startActivity(intent);
             }
         });
-binding.cardlibrary.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View view) {
-        Intent intent=new Intent(getBaseContext(),LibraryActivity.class);
-        startActivity(intent);
-    }
-});
+        binding.cardlibrary.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getBaseContext(), LibraryActivity.class);
+                startActivity(intent);
+            }
+        });
         binding.imProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -69,9 +94,15 @@ binding.cardlibrary.setOnClickListener(new View.OnClickListener() {
         binding.Logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                authprofile.signOut();
+                mAuta.signOut();
+            }
+        });
 
 
+       binding.btnCrach.setText("Test Crash");
+        binding.btnCrach.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                throw new RuntimeException("Test Crash"); // Force a crash
             }
         });
 
@@ -128,6 +159,14 @@ binding.cardlibrary.setOnClickListener(new View.OnClickListener() {
 //        databaseReference.removeValue();
 //        Toast.makeText(this, "the data is deleted", Toast.LENGTH_SHORT).show();
 //    }
-
+// Declare the launcher at the top of your Activity/Fragment:
+private final ActivityResultLauncher<String> requestPermissionLauncher =
+        registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted -> {
+            if (isGranted) {
+                // FCM SDK (and your app) can post notifications.
+            } else {
+                // TODO: Inform user that that your app will not show notifications.
+            }
+        });
 
 }

@@ -42,7 +42,7 @@ public class LibraryActivity extends BaseActivity {
                 intent.putExtra("ReleasYear",createBookClass.getReleaseYear());
                 startActivity(intent);
             }
-        });
+        },null);
         binding.RV.setHasFixedSize(true);
         binding.RV.setLayoutManager(new LinearLayoutManager(getBaseContext(), RecyclerView.VERTICAL, false));
         binding.RV.setAdapter(liabraryAdapter);
